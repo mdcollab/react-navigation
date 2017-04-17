@@ -12,10 +12,21 @@ import type {
 
 import NavigationActions from './NavigationActions';
 
+const getRouteName = component =>
+  component.displayName?
+    component.displayName
+      .replace(/^Connect\(/, "")
+      .replace(/\)$/, "")
+      .replace(/^_/, ""):
+    component.name;
+
 export default function<S: *> (navigation: NavigationProp<S, NavigationAction>) {
   return {
     ...navigation,
     goBack: (key?: ?string): boolean => navigation.dispatch(NavigationActions.back({
+      key: key === undefined ? navigation.state.key : key,
+    })),
+    pop: (key?: ?string): boolean => navigation.dispatch(NavigationActions.back({
       key: key === undefined ? navigation.state.key : key,
     })),
     navigate: (
@@ -27,6 +38,11 @@ export default function<S: *> (navigation: NavigationProp<S, NavigationAction>) 
           params,
           action,
         })),
+    push: (route: Object): boolean =>
+      navigation.dispatch(NavigationActions.navigate({
+        routeName: getRouteName(route.component),
+        params: route.passProps,
+      })),
     /**
      * For updating current route params. For example the nav bar title and
      * buttons are based on the route params.
