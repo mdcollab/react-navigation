@@ -245,6 +245,14 @@ export default (
         };
       }
 
+      if (action.type === NavigationActions.BACK_TO_TOP) {
+        return {
+          ...state,
+          routes: state.routes.slice(0, 1),
+          index: 0,
+        };
+      }
+
       if (action.type === NavigationActions.BACK || action.type === NavigationActions.BACK_TO) {
         let backRouteIndex = null;
         if (action.key) {
