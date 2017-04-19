@@ -102,7 +102,7 @@ export default (
               {
                 ...action,
                 type: undefined,
-                key: 'Init',
+                key: _getUuid(),
               },
             ],
           };
@@ -121,7 +121,7 @@ export default (
         route = {
           ...route,
           routeName: initialRouteName,
-          key: 'Init',
+          key: _getUuid(),
           ...(params ? { params } : {}),
         };
         state = {
@@ -231,12 +231,12 @@ export default (
                 ...action,
                 ...router.getStateForAction(action),
                 routeName: action.routeName,
-                key: `Init${index}`,
+                key: _getUuid(),
               };
             }
             const route = {
               ...action,
-              key: `Init${index}`,
+              key: _getUuid(),
             };
             delete route.type;
             return route;
