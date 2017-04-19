@@ -256,13 +256,9 @@ export default (
       if (action.type === NavigationActions.BACK || action.type === NavigationActions.BACK_TO) {
         let backRouteIndex = null;
         if (action.key) {
-          /* $FlowFixMe */
-          const backRoute = state.routes.find((route: *) => route.key === action.key);
-          /* $FlowFixMe */
-          backRouteIndex = state.routes.indexOf(backRoute);
-          if (action.type === NavigationActions.BACK_TO && backRouteIndex !== -1) {
-            backRouteIndex = backRouteIndex + 1;
-          }
+          const withKey = route => route.key === action.key || (route.routes && route.routes.find(withKey));
+          backRouteIndex = state.routes.findIndex(withKey);
+          if (action.type === NavigationActions.BACK_TO && backRouteIndex !== -1) backRouteIndex = backRouteIndex + 1;
         }
         if (backRouteIndex == null) {
           return StateUtils.pop(state);
