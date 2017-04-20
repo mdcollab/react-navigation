@@ -2,7 +2,6 @@ const namespacedAction = (action: string) => `Navigation/${action}`;
 
 const BACK = namespacedAction('BACK');
 const BACK_TO = namespacedAction('BACK_TO');
-const BACK_TO_TOP = namespacedAction('BACK_TO_TOP');
 const INIT = namespacedAction('INIT');
 const NAVIGATE = namespacedAction('NAVIGATE');
 const RESET = namespacedAction('RESET');
@@ -16,7 +15,6 @@ const createAction = (type: string) => (payload: object = {}) => ({
 
 const back = createAction(BACK);
 const backTo = createAction(BACK_TO);
-const backToTop = createAction(BACK_TO_TOP);
 const init = createAction(INIT);
 const navigate = createAction(NAVIGATE);
 const reset = createAction(RESET);
@@ -26,7 +24,6 @@ const uri = createAction(URI);
 const deprecatedActionMap = {
   Back: BACK,
   BackTo: BACK_TO,
-  BackToTop: BACK_TO_TOP,
   Init: INIT,
   Navigate: NAVIGATE,
   Reset: RESET,
@@ -58,7 +55,6 @@ export default {
   // Action constants
   BACK,
   BACK_TO,
-  BACK_TO_TOP,
   INIT,
   NAVIGATE,
   RESET,
@@ -68,7 +64,6 @@ export default {
   // Action creators
   back,
   backTo,
-  backToTop,
   init,
   navigate,
   reset,
