@@ -124,7 +124,7 @@ class CardStack extends Component {
   props: Props;
 
   constructor(props: Props) {
-    console.log('Controlled Card stack init ',props.navigation.state);
+    //console.log('Controlled Card stack init ',props.navigation.state);
     super(props);
   }
 
