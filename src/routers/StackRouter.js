@@ -107,7 +107,7 @@ export default (
               {
                 ...action,
                 type: undefined,
-                key: 'Init',
+                key: _getUuid(),
               },
             ],
           };
@@ -130,7 +130,7 @@ export default (
         route = {
           ...route,
           routeName: initialRouteName,
-          key: 'Init',
+          key: _getUuid(),
           ...(params ? { params } : {}),
         };
         // eslint-disable-next-line no-param-reassign
@@ -255,12 +255,12 @@ export default (
                   ...childAction,
                   ...router.getStateForAction(childAction),
                   routeName: childAction.routeName,
-                  key: `Init${index}`,
+                  key: _getUuid(),
                 };
               }
               const route = {
                 ...childAction,
-                key: `Init${index}`,
+                key: _getUuid(),
               };
               delete route.type;
               return route;
