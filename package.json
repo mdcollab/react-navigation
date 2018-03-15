@@ -51,7 +51,7 @@
     "path-to-regexp": "^1.7.0",
     "prop-types": "^15.5.10",
     "react-native-drawer-layout-polyfill": "^1.3.2",
-    "react-native-tab-view": "^0.0.67"
+    "react-native-tab-view": "git://github.com/mdcollab/react-native-tab-view.git#8e928a992d1dc98ed1dd065571d25e0fe90f44e7"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

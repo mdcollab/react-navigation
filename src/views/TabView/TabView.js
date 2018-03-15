@@ -139,6 +139,7 @@ class TabView extends PureComponent<void, Props, void> {
       tabBarPosition,
       animationEnabled,
       swipeEnabled,
+      bounces,
       lazy,
       screenProps,
     } = this.props;
@@ -172,6 +173,7 @@ class TabView extends PureComponent<void, Props, void> {
       lazy,
       animationEnabled,
       swipeEnabled,
+      bounces,
       renderPager,
       renderHeader,
       renderFooter,
