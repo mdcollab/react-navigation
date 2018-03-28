@@ -205,6 +205,7 @@ export default function createNavigationContainer(Component) {
         invariant(nav, 'should be set in constructor if stateful');
         if (!this._navigation || this._navigation.state !== nav) {
           this._navigation = addNavigationHelpers({
+            navId: navigation && navigation.navId,
             dispatch: this.dispatch,
             state: nav,
             addListener: (eventName, handler) => {

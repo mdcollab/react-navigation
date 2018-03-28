@@ -50,6 +50,7 @@ export default (routeConfigs, navigatorScreenConfig) => (
     }
     const childRoute = routes[index];
     const childNavigation = addNavigationHelpers({
+      navId: navigation.navId,
       state: childRoute,
       dispatch,
       addListener: getChildEventSubscriber(
