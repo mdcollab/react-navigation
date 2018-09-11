@@ -40,11 +40,11 @@ function getChildNavigation(navigation, childKey, getCurrentParentNavigation) {
       : null;
 
   const actionCreators = {
-    ...navigation.actions,
-    ...navigation.router.getActionCreators(childRoute, navigation.state.key),
     ...(childRouter
       ? childRouter.getActionCreators(focusedGrandChildRoute, childRoute.key)
       : {}),
+    ...navigation.actions,
+    ...navigation.router.getActionCreators(childRoute, navigation.state.key),
     ...getNavigationActionCreators(childRoute),
   };
 
